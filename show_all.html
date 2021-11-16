@@ -1,0 +1,60 @@
+<html>
+	<head>
+		<title> Home Page </title>
+	</head>
+	<body>
+		
+
+		<style type="text/css">
+			ul li{
+				display: inline-block;
+			}
+		</style>
+
+        {{poruka}}
+
+
+        <ul>
+            <li>
+                <a href="/pocetna">Pocetna</a>
+                {% if ulogovan == False %}
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+                {% endif %}
+                <a href="/show_all">Korisnici</a>
+                <a href="/logout">Logout</a>
+                <a href="/show_year">Spisak studenata</a>
+            </li>
+        </ul>
+        {{korisnici}}
+        <table border="1"">
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Lozinka</th>
+                <th>Godina studija</th>
+                <th>JMBG</th>
+                {% if ulogovan %}
+                <th colspan="2">Update i Delete</th>
+                {% endif %}
+            </tr>
+            {% for k in korisnici %}
+            <tr>
+                <td>{{k[1]}}</td>
+                <td>{{k[2]}}</td>
+                <td>{{k[3]}}</td>
+                <td>{{k[4]}}</td>
+                <td>{{k[5]}}</td>       
+                {% if ulogovan %}
+                <td>
+                    <a href="/update/{{k[1]}}">Update</a>
+                </td>
+                <td>
+                    <a href="/delete/{{k[1]}}">Delete</a>
+                </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

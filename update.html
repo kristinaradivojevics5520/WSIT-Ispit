@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<title> Home Page </title>
+	</head>
+	<body>
+		
+
+		<style type="text/css">
+			ul li{
+				display: inline-block;
+			}
+		</style>
+
+        {{poruka}}
+
+
+        <ul>
+            <li>
+                <a href="/pocetna">Pocetna</a>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+                <a href="/show_all">Korisnici</a>
+                <a href="/logout">Logout</a>
+                <a href="/show_year">Spisak studenata</a>
+            </li>
+        </ul>
+        <form action="update1" method="POST">
+            <table border="1">
+                <tr>
+                    <td>Email: </td>
+                    <td>{{korisnik[2]}}</td>
+                </tr>
+                <tr>
+                    <td>Lozinka: </td>
+                    <td>{{korisnik[3]}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="prva" name="godina" value="1">
+                        <label for="prva">1</label><br>
+                        <input type="radio" id="druga" name="godina" value="2">
+                        <label for="druga">2</label><br>
+                        <input type="radio" id="treca" name="godina" value="3">
+                        <label for="treca">3</label>
+                        <input type="radio" id="cetvrta" name="godina" value="4">
+                        <label for="cetvrta">4</label>
+                    </td>
+                    <td>{{korisnik[4]}}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Update">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

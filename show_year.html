@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<title> Home Page </title>
+	</head>
+	<body>
+		
+
+		<style type="text/css">
+			ul li{
+				display: inline-block;
+			}
+		</style>
+
+        {{poruka}}
+
+
+        <ul>
+            <li>
+                <a href="/pocetna">Pocetna</a>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+                <a href="/show_all">Korisnici</a>
+                <a href="/logout">Logout</a>
+                <a href="/show_year">Spisak studenata</a>
+            </li>
+        </ul>
+
+        <p>Unesite godinu studija: </p>
+        <input type="text" name="godina" id="godina">
+
+        <table border="1">
+            {% for k in korisnici %}
+            <tr>    
+                <td>Username: {{k[1]}}</td>
+                <td>Email: {{k[2]}}</td>
+                <td>Lozinka: {{k[3]}}</td>
+                <td>Godina studija:  {{k[4]}}</td>
+                <td>JMBG: {{k[5]}}</td>       
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
